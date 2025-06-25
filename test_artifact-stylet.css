@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
+  background: #f4f4f4;
+  color: #3c2f24;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url('da-nang-museum-of-cham-sculpture.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35); /* Adjust transparency here */
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.white {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.section-divider {
+  width: 80%;
+  height: 3px;
+  background: rgba(60, 47, 36, 0.2); /* brownish, semi-transparent */
+  margin: 60px auto 40px;
+  border-radius: 1px;
+}
+
+figure {
+  margin: 30px 0;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #555;
+  font-style: italic;
+}
+
+.slide-content {
+  max-width: 700px;
+  text-align: center;
+}
+
+.slide-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #5c3d1e;
+}
+
+.slide-content p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.side-by-side {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 60px 5vw;
+  text-align: left;
+}
+
+.side-by-side.reverse {
+  flex-direction: row-reverse;
+}
+
+.side-by-side .image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.side-by-side .image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.side-by-side .image figcaption {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.side-by-side .text {
+  flex: 1 1 45%;
+}
+
+@media (max-width: 768px) {
+  .side-by-side,
+  .side-by-side.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .side-by-side .text,
+  .side-by-side .image {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .slide-content h2 {
+    font-size: 24px;
+  }
+
+  .slide-content p {
+    font-size: 16px;
+  }
+}

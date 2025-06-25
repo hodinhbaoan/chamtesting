@@ -1,0 +1,99 @@
+body {
+  font-family: 'Libre Baskerville', serif;
+  margin: 0;
+  padding: 20px;
+  background: #e9ded0;
+  background-color: rgba(156, 154, 151, 0.7); /* soft overlay */
+  background-image: url('da-nang-museum-of-cham-sculpture.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}
+
+.app {
+  width: 100%;
+  max-width: 440px; /* wider but still phone-friendly */
+  margin: auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  padding: 6vw 7vw; /* more breathing space inside */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border: 2px solid #c2a477;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: #6b4f34;
+  font-family: 'Georgia', serif;
+  font-size: 26px;
+  border-bottom: 2px solid #a47e4c;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px #dec7a4;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 1.2em;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #5c4734;
+  font-weight: bold;
+}
+
+select, input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #c2a477;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #f3efe7;
+  color: #3c2f24;
+}
+
+button {
+  margin: 15px 0;
+  padding: 12px 0;
+  width: 100%;
+  background: #a47e4c;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #845f38;
+  transform: scale(1.02);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+/* ✅ Responsive tweaks */
+@media (max-width: 600px) {
+  .app {
+    padding: 5vw;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
