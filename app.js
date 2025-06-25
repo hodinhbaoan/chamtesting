@@ -1,20 +1,17 @@
 // DOMContentLoaded ensures the HTML is loaded before script runs
 window.addEventListener('DOMContentLoaded', () => {
 
-  // Store current language
-  let currentLang = "en";
-
   // BLE SCAN (Connect to ESP32, read and show artifact info)
   document.getElementById('bleButton').addEventListener('click', async () => {
     try {
       const device = await navigator.bluetooth.requestDevice({
         filters: [{ namePrefix: 'Cham_' }],
-        optionalServices: ['12345678-1234-1234-1234-1234567890ab'] // Replace with your actual service UUID
+        optionalServices: ['12345678-1234-1234-1234-1234567890ab'] // replace with your ESP32 service UUID
       });
 
       const server = await device.gatt.connect();
-      const service = await server.getPrimaryService('12345678-1234-1234-1234-1234567890ab'); // Match ESP32
-      const characteristic = await service.getCharacteristic('abcd'); // Replace with actual characteristic UUID
+      const service = await server.getPrimaryService('12345678-1234-1234-1234-1234567890ab');
+      const characteristic = await service.getCharacteristic('abcd'); // replace with your characteristic UUID
 
       const value = await characteristic.readValue();
       const data = new TextDecoder().decode(value);
@@ -26,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <p>${desc}</p>
         <audio controls src="${audio}"></audio>
       `;
+
     } catch (err) {
       alert("BLE connection failed: " + err);
     }
@@ -53,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
         html5QrcodeScanner.stop().then(() => {
           reader.style.display = 'none';
           resultBox.textContent = '✅ QR recognized, opening...';
-          window.location.href = msg;
+          window.location.href = msg; // Auto jump to scanned link
         });
       },
       err => {
@@ -99,19 +97,16 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   function updateLanguage(lang) {
-    currentLang = lang;
     const t = translations[lang] || translations.en;
-    document.querySelector('h1').textContent = t.header;
-    document.querySelector('label[for="language"]').textContent = t.langLabel;
-    document.querySelector('.content').innerHTML = `
-      <h2 id="title">${t.title}</h2>
-      <p id="desc">${t.desc}</p>
-    `;
-    document.getElementById('bleButton').textContent = t.bleButton;
-    document.getElementById('qrButton').textContent = t.qrButton;
+    document.getElementById("header").textContent = t.header;
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("title").textContent = t.title;
+    document.getElementById("desc").textContent = t.desc;
+    document.getElementById("bleButton").textContent = t.bleButton;
+    document.getElementById("qrButton").textContent = t.qrButton;
   }
 
-  document.getElementById('language').addEventListener('change', function () {
+  document.getElementById("language").addEventListener("change", function () {
     updateLanguage(this.value);
   });
 
